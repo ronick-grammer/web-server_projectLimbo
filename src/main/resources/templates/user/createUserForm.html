@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container">
+    <form action="/user/new" method="post">
+        <div class="form-group">
+            <label for="name">이름</label>
+            <input type="text" id="name" name="name" placeholder="이름을 입력하세요">
+
+            <label for="name">아이템</label>
+            <input type="text" id="item" name="item" placeholder="아이템을 입력하세요">
+
+            <label for="name">플레이 시간</label>
+            <input type="text" id="playTime" name="playTime" placeholder="총 플레이 시간을 입력하세요">
+
+            <label for="name">랭킹</label>
+            <input type="text" id="ranking" name="ranking" placeholder="순위를 입력하세요">
+        </div>
+
+        <button type="submit">등록</button>
+    </form>
+</div> <!-- /container -->
+</body>
+</html>

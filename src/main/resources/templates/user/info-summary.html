@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<style>
+    table, th, td{
+        border: 1px solid black;
+    }
+    tr{
+        text-align: center;
+    }
+</style>
+<body>
+<div class="container">
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>유저</th>
+                <th>소유 아이템</th>
+                <th>플레이 시간</th>
+                <th>랭킹</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.user_id}"></td>
+                <td th:text="${user.kakao_name}"></td>
+                <td th:text="${user.kakao_photo_url}"></td>
+                <td th:text="${user.play_hour}"></td>
+                <td th:text="${user.ranking}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div> <!-- /container -->
+</body>
+</html>
