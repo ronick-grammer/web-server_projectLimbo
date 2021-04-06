@@ -17,8 +17,8 @@
        <region>Korea South</region>
           <runtime>
             <os>linux</os>
-            <javaVersion>java8</javaVersion>
-            <webContainer>java8</webContainer>
+            <javaVersion>java11</javaVersion>
+            <webContainer>java11</webContainer>
           </runtime>
           <appSettings>
             <property>
