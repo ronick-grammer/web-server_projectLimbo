@@ -2,9 +2,9 @@ plugins {
 	id 'org.springframework.boot' version '2.4.3'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
-	id 'war' //
-	id 'lenala.azure.azurewebapp' version '1.0' //
-	id "org.gretty" version "3.0.4" //
+	//id 'war' //
+	//id 'lenala.azure.azurewebapp' version '1.0' //
+	//id "org.gretty" version "3.0.4" //
 }
 
 group = 'ronick'
@@ -15,6 +15,7 @@ repositories {
 	mavenCentral()
 }
 
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -23,16 +24,18 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // jpa, jdbc 다 포함
 	runtimeOnly 'mysql:mysql-connector-java'
 
-	providedCompile 'javax.servlet:javax.servlet-api:3.1.0'//
-}
-sourceCompatibility = '1.8'//
-targetCompatibility = '1.8'//
 
+	//providedCompile 'javax.servlet:javax.servlet-api:3.1.0'//
+
+}
+//sourceCompatibility = '1.8'//
+//targetCompatibility = '1.8'//
+/*
 azureWebApp {
 	resourceGroup = 'server-ProjectLimbo'
-	appName = 'test-spring-web-server'
+	appName = 'server-web-spring'
 	pricingTier = 'F1'
-	region = 'Korea South'
+	region = 'limbo'
 	appService = {
 		type = 'windows'
 		javaWebContainer = 'tomcat 8.5'
@@ -48,3 +51,4 @@ azureWebApp {
 		useJUnitPlatform()
 	}
 }
+*/
