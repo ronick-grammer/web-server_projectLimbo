@@ -2,14 +2,14 @@ plugins {
 	id 'org.springframework.boot' version '2.4.3'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
-	id 'war' //
+	id 'war' // **
 	//id 'lenala.azure.azurewebapp' version '1.0' //
 	//id "org.gretty" version "3.0.4" //
 }
 
-group = 'ronick'
+group = 'server-ProjectLimbo' //
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '8'
 
 repositories {
 	mavenCentral()
