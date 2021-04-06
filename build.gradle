@@ -30,7 +30,7 @@ targetCompatibility = '1.8'//
 
 azureWebApp {
 	resourceGroup = 'server-ProjectLimbo'
-	appName = 'server-web-spring'
+	appName = 'test-spring-web-server'
 	pricingTier = 'F1'
 	region = 'limbo'
 	appService = {
