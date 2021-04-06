@@ -55,4 +55,10 @@ public class MemberController {
         return "/user/restAPItest";
     }
 
+    //test
+    @GetMapping("/test")
+    public String test(){
+        return "test";
+    }
+
 }
