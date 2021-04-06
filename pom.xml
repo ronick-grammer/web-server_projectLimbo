@@ -1,0 +1,29 @@
+<plugin>
+ <groupId>com.microsoft.azure</groupId>
+ <artifactId>azure-webapp-maven-plugin</artifactId>
+ <version>1.9.1</version>
+</plugin>
+
+ <resourceGroup>server-ProjectLimbo</resourceGroup>
+       <appName>server-web-spring</appName>
+       <region>Korea South</region>
+       <pricingTier>F1</pricingTier>
+
+<configuration>
+          <schemaVersion>V2</schemaVersion>
+          <resourceGroup>server-ProjectLimbo</resourceGroup>
+       <appName>server-web-spring</appName>
+       <pricingTier>F1</pricingTier>
+       <region>Korea South</region>
+          <runtime>
+            <os>linux</os>
+            <javaVersion>java11</javaVersion>
+            <webContainer>java11</webContainer>
+          </runtime>
+          <appSettings>
+            <property>
+              <name>JAVA_OPTS</name>
+              <value>-Dserver.port=80</value>
+            </property>
+          </appSettings>
+          <deployment>
