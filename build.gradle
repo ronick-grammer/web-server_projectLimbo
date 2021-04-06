@@ -32,7 +32,7 @@ azureWebApp {
 	resourceGroup = 'server-ProjectLimbo'
 	appName = 'test-spring-web-server'
 	pricingTier = 'F1'
-	region = 'limbo'
+	region = 'Korea South'
 	appService = {
 		type = 'windows'
 		javaWebContainer = 'tomcat 8.5'
