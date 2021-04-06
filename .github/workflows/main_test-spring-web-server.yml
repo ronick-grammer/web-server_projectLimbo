@@ -14,22 +14,39 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Set up Java version
-      uses: actions/setup-java@v1
-      with:
-        java-version: '8'
-        distribution: 'adopt'
+      - name: Set up Java version
+        uses: actions/setup-java@v1
+        with:
+          java-version: '8'
+          distribution: 'adopt'
 
-    - name: Build with Maven
-      run: mvn clean install
+      - name: Cache Gradle packages
+        uses: actions/cache@v2
+        with:
+          path: |
+            - ~/.gradle/caches
+              ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
 
-    - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v2
-      with:
-        name: java-app
-        path: '${{ github.workspace }}/target/*.war'
+      - name: Build with Gradle # Maven
+        run: ./gradlew build #  mvn clean install
+
+      - name: Cleanup Gradle Cache
+          # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
+        # Restoring these files from a GitHub Actions cache might cause problems for future builds.
+        run: |
+          rm -f ~/.gradle/caches/modules-2/modules-2.lock
+          rm -f ~/.gradle/caches/modules-2/gc.properties
+
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@v2
+        with:
+          name: java-app
+          path: 'build/libs' #'${{ github.workspace }}/target/*.war'
 
   deploy:
     runs-on: windows-latest
@@ -39,16 +56,16 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-    - name: Download artifact from build job
-      uses: actions/download-artifact@v2
-      with:
-        name: java-app
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v2
+        with:
+          name: java-app
 
-    - name: Deploy to Azure Web App
-      id: deploy-to-webapp
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: 'test-spring-web-server'
-        slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_d349dee07ffb481ab0099732e0eaba5d }}
-        package: '*.war'
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'test-spring-web-server'
+          slot-name: 'production'
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_d349dee07ffb481ab0099732e0eaba5d }}
+          package: '*.war'
