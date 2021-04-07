@@ -22,16 +22,6 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
 
-      - name: Cache Gradle packages
-        uses: actions/cache@v2
-        with:
-          path: |
-            - ~/.gradle/caches
-              ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-
       - name: Build with Gradle # Maven
         run: ./gradlew build #  mvn clean install
 
