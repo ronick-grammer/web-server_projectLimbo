@@ -12,6 +12,7 @@ public class ProjectLimboApplication {
 	}
 }
 
+
 /*
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,7 +21,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 //War
 @SpringBootApplication
-public class ProjectLimboApplication extends  SpringBootServletInitializer{
+public class ProjectLimboApplication extends SpringBootServletInitializer{
 
     @Override
     protected  SpringApplicationBuilder configure(SpringApplicationBuilder application){
