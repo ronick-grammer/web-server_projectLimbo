@@ -28,7 +28,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: java-app
-        path: 'build/libs' #'${{ github.workspace }}/target/*.war'
+        path: 'gradle/wrapper' #'build/libs' #'${{ github.workspace }}/target/*.war'
 
   deploy:
     runs-on: windows-latest
@@ -50,4 +50,4 @@ jobs:
         app-name: 'server-web-spring'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_6d95719627ce4179a1facd0ca1057a83 }}
-        package: '*.war'
+        package: '*.jar'
