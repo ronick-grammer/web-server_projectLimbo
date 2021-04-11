@@ -29,6 +29,7 @@ dependencies {
 sourceCompatibility = '1.8'//
 targetCompatibility = '1.8'//
 
+/*
 azureWebApp { // azure cli set up
 	resourceGroup = 'server-ProjectLimbo'
 	appName = 'server-web-spring'
@@ -49,4 +50,4 @@ azureWebApp { // azure cli set up
 		useJUnitPlatform()
 	}
 }
-
+*/
