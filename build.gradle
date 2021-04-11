@@ -22,7 +22,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // jpa, jdbc 다 포함
 	runtimeOnly 'mysql:mysql-connector-java'
 
-	//providedCompile 'javax.servlet:javax.servlet-api:3.1.0'// azure cli set up
+	providedCompile 'javax.servlet:javax.servlet-api:3.1.0'// servlet
 
 }
 
